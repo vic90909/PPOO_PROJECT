@@ -2,15 +2,22 @@ package model.audit;
 
 import org.joda.time.DateTime;
 
+import java.util.UUID;
+
 public abstract class Auditable {
 
+    private String uuid;
     private String createdBy;
     private DateTime createdDate;
     private boolean logicallyDeleted;
     private DateTime deletedDate;
     private DateTime editedDate;
 
-    public Auditable(String createdBy, DateTime createdDate, boolean logicallyDeleted, DateTime deletedDate, DateTime editedDate) {
+    public static final String SYSTEM = "SYSTEM";
+
+
+    public Auditable(String uuid, String createdBy, DateTime createdDate, boolean logicallyDeleted, DateTime deletedDate, DateTime editedDate) {
+        this.uuid = uuid;
         this.createdBy = createdBy;
         this.createdDate = createdDate;
         this.logicallyDeleted = logicallyDeleted;
@@ -19,7 +26,20 @@ public abstract class Auditable {
     }
 
     public Auditable() {
+        this.uuid = UUID.randomUUID().toString();
+        this.createdBy = SYSTEM;
+        this.createdDate = DateTime.now();
+        this.logicallyDeleted = false;
+        this.deletedDate = null;
+        this.editedDate = null;
+    }
 
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getCreatedBy() {
@@ -64,12 +84,12 @@ public abstract class Auditable {
 
     @Override
     public String toString() {
-        return "Auditable{" +
-                "createdBy='" + createdBy + '\'' +
-                ", createdDate=" + createdDate +
-                ", logicallyDeleted=" + logicallyDeleted +
-                ", deletedDate=" + deletedDate +
-                ", editedDate=" + editedDate +
-                '}';
+        StringBuilder builder = new StringBuilder();
+        builder.append(createdDate.toString()).append(",");
+        builder.append(createdBy).append(",");
+        builder.append(editedDate!=null?editedDate.toString():"null").append(",");
+        builder.append(deletedDate!=null?deletedDate.toString():"null").append(",");
+        builder.append(isLogicallyDeleted()?"Yes":"No").append("\n");
+        return builder.toString();
     }
 }

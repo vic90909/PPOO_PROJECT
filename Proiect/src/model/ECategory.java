@@ -3,12 +3,12 @@ package model;
 
 public enum ECategory {
 
-    FOOD("food","Different types of foods"),
-    APPLIANCES("appliances", "Home appliances"),
-    IT("it","Laptops, Tablets, Phones, Peripherals, Software"),
-    TOYS("toys","Toys for children and babies"),
-    FASHION("fashion", "Fashion"),
-    ENTERTAINMENT("entertainment", "TV, Audio, Video, Gaming, Books");
+    FOOD("FOOD","Different types of foods"),
+    APPLIANCES("APPLIANCE", "Home appliances"),
+    IT("IT","Laptops, Tablets, Phones, Peripherals, Software"),
+    TOYS("TOYS","Toys for children and babies"),
+    FASHION("FASHION", "Fashion"),
+    ENTERTAINMENT("ENTERTAINMENT", "TV, Audio, Video, Gaming, Books");
 
     private String type;
     private String description;

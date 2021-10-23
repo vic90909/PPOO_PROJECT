@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 @Builder
 public class Product extends Auditable implements Serializable {
 
-    private Long id;
     private String title;
     private String description;
     private ECategory category;
@@ -19,15 +18,15 @@ public class Product extends Auditable implements Serializable {
     private float discount;
 
     public Product(){
+
+    }
+
+    public Product(String uuid,String createdBy, DateTime createdDate, boolean logicallyDeleted, DateTime deletedDate, DateTime editedDate) {
+        super(uuid, createdBy, createdDate, logicallyDeleted, deletedDate, editedDate);
+    }
+
+    public Product(String title, String description, ECategory category, BigDecimal price, int availableQuantity, float discount) {
         super();
-    }
-
-    public Product(String createdBy, DateTime createdDate, boolean logicallyDeleted, DateTime deletedDate, DateTime editedDate) {
-        super(createdBy, createdDate, logicallyDeleted, deletedDate, editedDate);
-    }
-
-    public Product(Long id, String title, String description, ECategory category, BigDecimal price, int availableQuantity, float discount) {
-        this.id = id;
         this.title = title;
         this.description = description;
         this.category = category;
@@ -36,23 +35,14 @@ public class Product extends Auditable implements Serializable {
         this.discount = discount;
     }
 
-    public Product(String createdBy, DateTime createdDate, boolean logicallyDeleted, DateTime deletedDate, DateTime editedDate, Long id, String title, String description, ECategory category, BigDecimal price, int availableQuantity, float discount) {
-        super(createdBy, createdDate, logicallyDeleted, deletedDate, editedDate);
-        this.id = id;
+    public Product(String uuid, String createdBy, DateTime createdDate, boolean logicallyDeleted, DateTime deletedDate, DateTime editedDate,  String title, String description, ECategory category, BigDecimal price, int availableQuantity, float discount) {
+        super(uuid, createdBy, createdDate, logicallyDeleted, deletedDate, editedDate);
         this.title = title;
         this.description = description;
         this.category = category;
         this.price = price;
         this.availableQuantity = availableQuantity;
         this.discount = discount;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getTitle() {
@@ -103,17 +93,31 @@ public class Product extends Auditable implements Serializable {
         this.availableQuantity = availableQuantity;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", category=" + category +
-                ", price=" + price +
-                ", discount=" + discount +
-                '}';
+    public void copyFrom(Product product){
+        this.setAvailableQuantity(product.getAvailableQuantity());
+        this.setTitle(product.getTitle());
+        this.setCategory(product.getCategory());
+        this.setDescription(product.getDescription());
+        this.setPrice(product.getPrice());
+        this.setDiscount(product.getDiscount());
+        this.setCreatedBy(product.getCreatedBy());
+        this.setCreatedDate(product.getCreatedDate());
+        this.setEditedDate(DateTime.now());
+        this.setDeletedDate(product.getDeletedDate());
+        this.setLogicallyDeleted(product.isLogicallyDeleted());
     }
 
-
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(super.getUuid()).append(",");
+        builder.append(title).append(",");
+        builder.append(description).append(",");
+        builder.append(category.getType()).append(",");
+        builder.append(price).append(",");
+        builder.append(availableQuantity).append(",");
+        builder.append(discount).append(",");
+        builder.append(super.toString());
+        return builder.toString();
+    }
 }

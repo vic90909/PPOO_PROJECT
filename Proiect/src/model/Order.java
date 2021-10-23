@@ -9,7 +9,6 @@ import java.util.List;
 
 public class Order extends Auditable implements Serializable {
 
-    private Long id;
     private List<OrderProduct> orderProductList;
     private Customer customer;
     private BigDecimal discount;
@@ -19,13 +18,12 @@ public class Order extends Auditable implements Serializable {
 
     }
 
-    public Order(String createdBy, DateTime createdDate, boolean logicallyDeleted, DateTime deletedDate, DateTime editedDate) {
-        super(createdBy, createdDate, logicallyDeleted, deletedDate, editedDate);
+    public Order(String uuid,String createdBy, DateTime createdDate, boolean logicallyDeleted, DateTime deletedDate, DateTime editedDate) {
+        super(uuid, createdBy, createdDate, logicallyDeleted, deletedDate, editedDate);
     }
 
-    public Order(String createdBy, DateTime createdDate, boolean logicallyDeleted, DateTime deletedDate, DateTime editedDate, Long id, List<OrderProduct> orderProductList, Customer customer, BigDecimal discount) {
-        super(createdBy, createdDate, logicallyDeleted, deletedDate, editedDate);
-        this.id = id;
+    public Order(String uuid,String createdBy, DateTime createdDate, boolean logicallyDeleted, DateTime deletedDate, DateTime editedDate, Long id, List<OrderProduct> orderProductList, Customer customer, BigDecimal discount) {
+        super(uuid, createdBy, createdDate, logicallyDeleted, deletedDate, editedDate);
         this.orderProductList = orderProductList;
         this.customer = customer;
         this.discount = discount;
@@ -35,13 +33,6 @@ public class Order extends Auditable implements Serializable {
         totalPrice.multiply(discount);
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public List<OrderProduct> getOrderProductList() {
         return orderProductList;
@@ -78,7 +69,6 @@ public class Order extends Auditable implements Serializable {
     @Override
     public String toString() {
         return "Order{" +
-                "id=" + id +
                 ", orderProductList=" + orderProductList +
                 ", customer=" + customer +
                 ", discount=" + discount +

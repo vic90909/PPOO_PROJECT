@@ -7,7 +7,6 @@ import java.io.Serializable;
 
 public class Customer extends Auditable implements Serializable {
 
-    private Long id;
     private String name;
     private String surname;
     private String address;
@@ -15,16 +14,15 @@ public class Customer extends Auditable implements Serializable {
     private DateTime birthdate;
 
     public Customer() {
-        super();
+
     }
 
-    public Customer(String createdBy, DateTime createdDate, boolean logicallyDeleted, DateTime deletedDate, DateTime editedDate) {
-        super(createdBy, createdDate, logicallyDeleted, deletedDate, editedDate);
+    public Customer(String uuid,String createdBy, DateTime createdDate, boolean logicallyDeleted, DateTime deletedDate, DateTime editedDate) {
+        super(uuid,createdBy, createdDate, logicallyDeleted, deletedDate, editedDate);
     }
 
-    public Customer(String createdBy, DateTime createdDate, boolean logicallyDeleted, DateTime deletedDate, DateTime editedDate, Long id, String name, String surname, String address, String phoneNumber, DateTime birthdate) {
-        super(createdBy, createdDate, logicallyDeleted, deletedDate, editedDate);
-        this.id = id;
+    public Customer(String uuid,String createdBy, DateTime createdDate, boolean logicallyDeleted, DateTime deletedDate, DateTime editedDate, Long id, String name, String surname, String address, String phoneNumber, DateTime birthdate) {
+        super(uuid, createdBy, createdDate, logicallyDeleted, deletedDate, editedDate);
         this.name = name;
         this.surname = surname;
         this.address = address;
@@ -32,13 +30,6 @@ public class Customer extends Auditable implements Serializable {
         this.birthdate = birthdate;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -83,7 +74,6 @@ public class Customer extends Auditable implements Serializable {
     @Override
     public String toString() {
         return "Customer{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", address='" + address + '\'' +
@@ -99,10 +89,6 @@ public class Customer extends Auditable implements Serializable {
             customer= new Customer();
         }
 
-        public Builder id(Long id){
-            this.customer.setId(id);
-            return this;
-        }
 
         public Builder name(String name){
             this.customer.setName(name);
