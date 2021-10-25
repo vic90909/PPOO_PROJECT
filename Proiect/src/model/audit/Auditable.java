@@ -89,7 +89,17 @@ public abstract class Auditable {
         builder.append(createdBy).append(",");
         builder.append(editedDate!=null?editedDate.toString():"null").append(",");
         builder.append(deletedDate!=null?deletedDate.toString():"null").append(",");
-        builder.append(isLogicallyDeleted()?"Yes":"No").append("\n");
+        builder.append(isLogicallyDeleted()?"Yes":"No");
         return builder.toString();
+    }
+
+    public String toStringNice() {
+        final StringBuilder sb = new StringBuilder();
+        sb.append("\n   createdBy='").append(createdBy).append('\'');
+        sb.append("\n   createdDate=").append(createdDate);
+        sb.append("\n   logicallyDeleted=").append(logicallyDeleted);
+        sb.append("\n   deletedDate=").append(deletedDate);
+        sb.append("\n   editedDate=").append(editedDate);
+        return sb.toString();
     }
 }

@@ -1,3 +1,3 @@
 uuid,title,description,category,price,quantity,discount,createdDate,createdBy,editedDate,deletedDate,logicallyDeleted
 4d4a2b95-a85c-4f1f-a763-1060f8623a1f,null,Laptop,IT,4000,10,0.0,2021-10-23T19:01:43.970+03:00,SYSTEM,null,null,No
-bdbec9e7-f0aa-40c3-add5-05aea507dc2f,null,Laptop Asus ROG 2 2021,IT,5000,25,0.0,2021-10-23T19:12:44.256+03:00,SYSTEM,2021-10-23T19:12:44.275+03:00,null,No
+bdbec9e7-f0aa-40c3-add5-05aea507dc2f,null,Laptop Asus ROG 2 2021,IT,5000,25,0.0,2021-10-24T22:19:11.376+03:00,SYSTEM,2021-10-24T22:19:11.379+03:00,null,No

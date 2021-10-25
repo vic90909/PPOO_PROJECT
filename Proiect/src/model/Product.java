@@ -120,4 +120,17 @@ public class Product extends Auditable implements Serializable {
         builder.append(super.toString());
         return builder.toString();
     }
+
+    public String toStringNice() {
+        final StringBuilder sb = new StringBuilder("\nProduct:");
+        sb.append("\n   uuid='").append(getUuid()).append('\'');
+        sb.append("\n   title='").append(title).append('\'');
+        sb.append("\n   description='").append(description).append('\'');
+        sb.append("\n   category=").append(category);
+        sb.append("\n   price=").append(price);
+        sb.append("\n   availableQuantity=").append(availableQuantity);
+        sb.append("\n   discount=").append(discount);
+        sb.append(super.toStringNice());
+        return sb.toString();
+    }
 }
