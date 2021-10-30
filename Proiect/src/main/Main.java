@@ -1,18 +1,19 @@
 package main;
 
-import model.Customer;
-import model.ECategory;
-import model.OrderProduct;
-import model.Product;
+import com.sun.org.apache.xpath.internal.operations.Or;
+import model.*;
 import org.joda.time.DateTime;
+import org.junit.platform.commons.util.StringUtils;
 import repository.CustomerRepository;
 import repository.ProductRepository;
 import service.CustomerService;
+import service.OrderService;
 import service.ProductService;
 
 import java.io.FileNotFoundException;
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -21,6 +22,7 @@ public class Main {
 
         ProductService productService = new ProductService();
         CustomerService customerService = new CustomerService();
+        OrderService orderService = new OrderService();
 
         CustomerRepository customerRepository = CustomerRepository.getInstance();
 
@@ -32,11 +34,6 @@ public class Main {
                 .phone("0745")
                 .birthdate(new DateTime(2001, 06, 19, 0, 0))
                 .build();
-        System.out.println(customer);
-
-        customerRepository.postCustomer(customer);
-
-        System.out.println(customerRepository.findAllCustomersOrderByName());
 
         Product product = Product.builder()
                 .category(ECategory.IT)
@@ -63,15 +60,42 @@ public class Main {
                 .price(BigDecimal.valueOf(8000))
                 .build();
 
+        String repeated = new String(new char[10]).replace("\0", " ");
+        repeated+="a";
+        System.out.println(repeated);
+        String padded = String.format("%-50s || %-50s", "Victor", "Mitoi", System.lineSeparator());
+        String padded2 = String.format("%-50s || %-50s", "Victosfhgfshfghr", "Mitoidfghfdghdfh", System.lineSeparator());
 
+        productService.writeReport();
+
+        System.out.println(padded);
+        System.out.println(padded2);
         System.out.println(product);
+
+        Order order = new Order();
+        order.setDiscount(BigDecimal.ZERO);
+        order.setCustomer(customer);
 
         OrderProduct orderProduct = OrderProduct.builder()
                 .product(product)
-                .quantity(10)
+                .quantity(5)
+                .order(order)
                 .build();
 
-        System.out.println("Hello there\n Please select your category first (enter the digit/word according to the wanted category):\n");
+        OrderProduct orderProduct2 = OrderProduct.builder()
+                .product(product2)
+                .quantity(1)
+                .order(order)
+                .build();
+
+        order.setOrderProductList(Arrays.asList(orderProduct,orderProduct2));
+
+//        orderService.postOrder(order);
+
+        orderService.showOrders();
+
+
+        System.out.println("Hello there\n Please select your category first (enter the digit/word according to the wanted category):");
         Scanner scanner = new Scanner(System.in);
         String s = "";
         String uuid;
@@ -122,8 +146,8 @@ public class Main {
                         s = scanner.nextLine();
                         switch (s) {
                             case "1":
-                                System.out.println("Get all products:");
-                                productService.showProducts();
+                                System.out.println("Get all orders:");
+                                orderService.showOrders();
                                 break;
                             case "2":
                                 System.out.println("Get a product by uuid");
@@ -192,18 +216,6 @@ public class Main {
         }
 
         scanner.close();
-//        try {
-//            ProductRepository productRepository = ProductRepository.getInstance();
-////            productRepository.postProductList(Arrays.asList(product,product2));
-//            productRepository.editProduct("bdbec9e7-f0aa-40c3-add5-05aea507dc2f", product3);
-//            Map<String,Product> products = productRepository.readProducts();
-//            System.out.println(productRepository.findProductByUuid("bdbec9e7-f0aa-40c3-add5-05aea507dc2f"));
-//            System.out.println(products);
-//            productRepository.closeFile();
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//
     }
 
     static void showMenu() {
@@ -234,6 +246,17 @@ public class Main {
         System.out.println("3: Post a customer");
         System.out.println("4: Put a customer");
         System.out.println("5: Logically delete a customer");
+        System.out.println("=========================================");
+    }
+
+    static void showOrdersMenu() {
+        System.out.println("\n=========================================");
+        System.out.println("Back: Back to the main menu");
+        System.out.println("1: Get all orders");
+        System.out.println("2: Get a order by uuid");
+        System.out.println("3: Post a order");
+        System.out.println("4: Put a order");
+        System.out.println("5: Logically delete a order");
         System.out.println("=========================================");
     }
 }

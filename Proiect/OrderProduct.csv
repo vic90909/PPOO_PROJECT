@@ -1,0 +1,5 @@
+uuid,productUuid,quantity,orderUuid,createdDate,createdBy,editedDate,deletedDate,logicallyDeleted
+ca8a5839-4144-450e-89c4-88a1c19ee455,a4655f32-b427-4b09-93a8-b2628bbfb8ac,5,3caec49a-e5d9-4d07-84c5-5285becd778a,2021-10-30T18:29:28.939+03:00,SYSTEM,null,null,No
+fdb8c93f-d43c-4f35-ad0f-9c559e386d8e,9df5c99d-173f-4ada-8736-6ebce17c432b,1,3caec49a-e5d9-4d07-84c5-5285becd778a,2021-10-30T18:29:28.939+03:00,SYSTEM,null,null,No
+7fa11ce9-2d9e-4e08-a598-5bf7e81cc6a9,caa82e6c-a45e-4900-aaee-a2c990eeadee,5,b7d2a288-9f38-4308-8c15-1941a2ccb87d,2021-10-30T18:49:46.803+03:00,SYSTEM,null,null,No
+9b2db649-9060-4be4-a9fc-81541a6190b5,96f22945-9cdd-4ca1-ba8a-dee32db2b74f,1,b7d2a288-9f38-4308-8c15-1941a2ccb87d,2021-10-30T18:49:46.803+03:00,SYSTEM,null,null,No

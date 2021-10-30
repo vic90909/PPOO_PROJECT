@@ -24,7 +24,7 @@ public class Order extends Auditable implements Serializable {
         super(uuid, createdBy, createdDate, logicallyDeleted, deletedDate, editedDate);
     }
 
-    public Order(String uuid,String createdBy, DateTime createdDate, boolean logicallyDeleted, DateTime deletedDate, DateTime editedDate, Long id, List<OrderProduct> orderProductList, Customer customer, BigDecimal discount) {
+    public Order(String uuid,String createdBy, DateTime createdDate, boolean logicallyDeleted, DateTime deletedDate, DateTime editedDate, List<OrderProduct> orderProductList, Customer customer, BigDecimal discount) {
         super(uuid, createdBy, createdDate, logicallyDeleted, deletedDate, editedDate);
         this.orderProductList = orderProductList;
         this.customer = customer;
@@ -33,6 +33,14 @@ public class Order extends Auditable implements Serializable {
             totalPrice.add(each.getProduct().getPrice().multiply(BigDecimal.valueOf(1-each.getProduct().getDiscount())).multiply(BigDecimal.valueOf(each.getQuantity())));
         }
         totalPrice.multiply(discount);
+    }
+
+    public Order(String uuid,String createdBy, DateTime createdDate, boolean logicallyDeleted, DateTime deletedDate, DateTime editedDate, List<OrderProduct> orderProductList, Customer customer, BigDecimal discount, BigDecimal totalPrice) {
+        super(uuid, createdBy, createdDate, logicallyDeleted, deletedDate, editedDate);
+        this.orderProductList = orderProductList;
+        this.customer = customer;
+        this.discount = discount;
+        this.totalPrice=totalPrice;
     }
 
 
