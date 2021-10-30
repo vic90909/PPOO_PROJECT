@@ -1,6 +1,8 @@
 package model;
 
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 import model.audit.Auditable;
 import org.joda.time.DateTime;
 
@@ -9,6 +11,8 @@ import java.math.BigDecimal;
 
 @Builder
 public class Product extends Auditable implements Serializable {
+
+    private static final long serialVersionUID = -9151222681801417377L;
 
     private String title;
     private String description;

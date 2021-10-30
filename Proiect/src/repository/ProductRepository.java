@@ -12,10 +12,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static utils.Constants.PRODUCT_FILENAME;
 
@@ -36,20 +33,20 @@ public class ProductRepository {
     }
 
     public static ProductRepository getInstance() throws FileNotFoundException {
-        if (instance == null) {
+        if (Objects.isNull(instance)) {
             instance = new ProductRepository();
         }
         return instance;
     }
 
     public void postProduct(Product product) throws FileNotFoundException {
-        this.printWriter = new PrintWriter(new FileOutputStream("Product.csv", true));
+        this.printWriter = new PrintWriter(new FileOutputStream(PRODUCT_FILENAME.getName(), true));
         printWriter.write(product.toString());
         printWriter.close();
     }
 
     public void postProductList(List<Product> productList) throws FileNotFoundException {
-        this.printWriter = new PrintWriter(new FileOutputStream("Product.csv", true));
+        this.printWriter = new PrintWriter(new FileOutputStream(PRODUCT_FILENAME.getName(), true));
         for (Product each : productList) {
             printWriter.write(each.toString());
         }
@@ -61,7 +58,7 @@ public class ProductRepository {
         String line = "";
         String splitBy = ",";
         try {
-            BufferedReader br = new BufferedReader(new FileReader("Product.csv"));
+            BufferedReader br = new BufferedReader(new FileReader(PRODUCT_FILENAME.getName()));
             br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] productString = line.split(splitBy);
@@ -81,7 +78,7 @@ public class ProductRepository {
         String line = "";
         String splitBy = ",";
         try {
-            BufferedReader br = new BufferedReader(new FileReader("Product.csv"));
+            BufferedReader br = new BufferedReader(new FileReader(PRODUCT_FILENAME.getName()));
             br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] productString = line.split(splitBy);
@@ -133,6 +130,10 @@ public class ProductRepository {
         }
     }
 
+    public void logicallyDelete(Product product){
+        product.setLogicallyDeleted(true);
+        product.setDeletedDate(DateTime.now());
+    }
 
     public void closeFile() {
         printWriter.close();

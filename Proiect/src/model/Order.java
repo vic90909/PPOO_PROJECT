@@ -9,6 +9,8 @@ import java.util.List;
 
 public class Order extends Auditable implements Serializable {
 
+    private static final long serialVersionUID = -4250948701052710046L;
+
     private List<OrderProduct> orderProductList;
     private Customer customer;
     private BigDecimal discount;
@@ -74,5 +76,15 @@ public class Order extends Auditable implements Serializable {
                 ", discount=" + discount +
                 ", totalPrice=" + totalPrice +
                 '}';
+    }
+
+    public String toCsv(){
+        StringBuilder builder = new StringBuilder();
+        builder.append(super.getUuid()).append(",");
+        builder.append(customer.getUuid()).append(",");
+        builder.append(discount).append(",");
+        builder.append(totalPrice).append(",");
+        builder.append(super.toString());
+        return builder.toString();
     }
 }

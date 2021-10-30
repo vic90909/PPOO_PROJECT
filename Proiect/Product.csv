@@ -1,3 +1,6 @@
 uuid,title,description,category,price,quantity,discount,createdDate,createdBy,editedDate,deletedDate,logicallyDeleted
-4d4a2b95-a85c-4f1f-a763-1060f8623a1f,null,Laptop,IT,4000,10,0.0,2021-10-23T19:01:43.970+03:00,SYSTEM,null,null,No
-bdbec9e7-f0aa-40c3-add5-05aea507dc2f,null,Laptop Asus ROG 2 2021,IT,5000,25,0.0,2021-10-24T22:19:11.376+03:00,SYSTEM,2021-10-24T22:19:11.379+03:00,null,No
+caa82e6c-a45e-4900-aaee-a2c990eeadee,null,Samsung Galaxy S21 Ultra,IT,5000,100,0.0,2021-10-28T22:10:36.103+03:00,SYSTEM,null,null,No
+9df5c99d-173f-4ada-8736-6ebce17c432b,null,Samsung Galaxy S21 Ultra,IT,5000,100,0.0,2021-10-28T22:10:10.615+03:00,SYSTEM,2021-10-28T22:10:51.936+03:00,null,No
+a4655f32-b427-4b09-93a8-b2628bbfb8ac,null,Laptop Asus ROG 2 2021,IT,8000,25,0.0,2021-10-28T22:10:10.615+03:00,SYSTEM,null,null,No
+96f22945-9cdd-4ca1-ba8a-dee32db2b74f,null,Laptop Asus ROG 2 2021,IT,8000,25,0.0,2021-10-28T22:10:36.103+03:00,SYSTEM,null,null,No
+61d13c5e-ef42-42e5-9f66-26559423a9a6,asdfg,adgfafgd,ENTERTAINMENT,150,15,0.0,2021-10-29T22:24:58.919+03:00,SYSTEM,null,null,No

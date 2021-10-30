@@ -3,9 +3,9 @@ package model;
 import model.audit.Auditable;
 import org.joda.time.DateTime;
 
-import java.io.Serializable;
+public class Customer extends Auditable {
 
-public class Customer extends Auditable implements Serializable {
+    private static final long serialVersionUID = -5751290138766044928L;
 
     private String name;
     private String surname;
@@ -14,7 +14,7 @@ public class Customer extends Auditable implements Serializable {
     private DateTime birthdate;
 
     public Customer() {
-
+        super();
     }
 
     public Customer(String uuid,String createdBy, DateTime createdDate, boolean logicallyDeleted, DateTime deletedDate, DateTime editedDate) {
@@ -30,6 +30,13 @@ public class Customer extends Auditable implements Serializable {
         this.birthdate = birthdate;
     }
 
+    public Customer(String name, String surname, String address, String phoneNumber, DateTime birthdate) {
+        this.name = name;
+        this.surname = surname;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.birthdate = birthdate;
+    }
 
     public String getName() {
         return name;
@@ -73,13 +80,27 @@ public class Customer extends Auditable implements Serializable {
 
     @Override
     public String toString() {
-        return "Customer{" +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", address='" + address + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", birthdate=" + birthdate +
-                '}';
+        final StringBuilder sb = new StringBuilder();
+        sb.append(super.getUuid()).append(",");
+        sb.append(name).append(",");
+        sb.append(surname).append(",");
+        sb.append(address).append(",");
+        sb.append(phoneNumber).append(",");
+        sb.append(birthdate).append(",");;
+        sb.append(super.toString());
+        return sb.toString();
+    }
+
+    public String toStringNice() {
+        final StringBuilder sb = new StringBuilder("\nProduct:");
+        sb.append("\n   uuid='").append(getUuid()).append('\'');
+        sb.append("\n   name='").append(name).append('\'');
+        sb.append("\n   surname='").append(surname).append('\'');
+        sb.append("\n   birthday=").append(birthdate);
+        sb.append("\n   address=").append(address);
+        sb.append("\n   phoneNumber=").append(phoneNumber);
+        sb.append(super.toStringNice());
+        return sb.toString();
     }
 
     public static class Builder {
@@ -119,4 +140,5 @@ public class Customer extends Auditable implements Serializable {
             return customer;
         }
     }
+
 }

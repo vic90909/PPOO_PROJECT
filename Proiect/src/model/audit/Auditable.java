@@ -2,9 +2,12 @@ package model.audit;
 
 import org.joda.time.DateTime;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public abstract class Auditable {
+public abstract class Auditable implements Serializable {
+
+    private static final long serialVersionUID = 567634802924223021L;
 
     private String uuid;
     private String createdBy;
@@ -90,6 +93,7 @@ public abstract class Auditable {
         builder.append(editedDate!=null?editedDate.toString():"null").append(",");
         builder.append(deletedDate!=null?deletedDate.toString():"null").append(",");
         builder.append(isLogicallyDeleted()?"Yes":"No");
+        builder.append("\n");
         return builder.toString();
     }
 
