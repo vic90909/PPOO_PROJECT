@@ -244,51 +244,27 @@ public class ProductService {
                 }
 
             }
-            System.out.println((maxLenghts.get("uuid") / 2 - 2));
-            System.out.println((maxLenghts.get("title") / 2 - 2));
-            System.out.println((maxLenghts.get("description") / 2 - 2));
-            System.out.println((maxLenghts.get("category") / 2 - 2));
-            System.out.println((maxLenghts.get("price") / 2 - 2));
-            System.out.println((maxLenghts.get("availableQuantity") / 2 - 2));
-            System.out.println((maxLenghts.get("discount") / 2 - 2));
-            System.out.println((maxLenghts.get("createdBy") / 2 - 2));
-            System.out.println((maxLenghts.get("createdDate") / 2 - 2));
-            System.out.println((maxLenghts.get("deletedDate") / 2 - 2));
-            System.out.println((maxLenghts.get("logicallyDeleted") / 2 - 2));
-            System.out.println((maxLenghts.get("editedDate") / 2 - 2));
 
             for (Map.Entry<String, Integer> entry : maxLenghts.entrySet()) {
-                if(entry.getValue()%2==1){
-                    entry.setValue(entry.getValue() +1);
+                if (entry.getValue() % 2 == 1) {
+                    entry.setValue(entry.getValue() + 1);
                 }
             }
 
-            System.out.println("\n\n"+(maxLenghts.get("uuid") / 2 - 2));
-            System.out.println((maxLenghts.get("title") / 2 - 2));
-            System.out.println((maxLenghts.get("description") / 2 - 2));
-            System.out.println((maxLenghts.get("category") / 2 - 2));
-            System.out.println((maxLenghts.get("price") / 2 - 2));
-            System.out.println((maxLenghts.get("availableQuantity") / 2 - 2));
-            System.out.println((maxLenghts.get("discount") / 2 - 2));
-            System.out.println((maxLenghts.get("createdBy") / 2 - 2));
-            System.out.println((maxLenghts.get("createdDate") / 2 - 2));
-            System.out.println((maxLenghts.get("deletedDate") / 2 - 2));
-            System.out.println((maxLenghts.get("logicallyDeleted") / 2 - 2));
-            System.out.println((maxLenghts.get("editedDate") / 2 - 2));
 
             printWriter.print(String.format(
-                    "||%" + (maxLenghts.get("uuid") / 2 -2 + 5) + "s %-" + (maxLenghts.get("uuid") / 2 +2 + 5) + "s" +
-                            "||%" + (maxLenghts.get("title") / 2 -3 + 5) + "s %-" + (maxLenghts.get("title") / 2 +3 + 5) + "s" +
-                            "||%" + (maxLenghts.get("description") / 2 -6 + 5) + "s %-" + (maxLenghts.get("description") / 2 + 6 + 5) + "s" +
-                            "||%" + (maxLenghts.get("category") / 2 - 4 + 5) + "s %-" + (maxLenghts.get("category") / 2 +4 + 5) + "s" +
-                            "||%" + (maxLenghts.get("price") / 2 - 3 + 5) + "s %-" + (maxLenghts.get("price") / 2 +3 + 5) + "s" +
-                            "||%" + (maxLenghts.get("availableQuantity") / 2 - 9 + 5) + "s %-" + (maxLenghts.get("availableQuantity")/2 +9 + 5) + "s" +
-                            "||%" + (maxLenghts.get("discount") / 2 - 4 + 5) + "s %-" + (maxLenghts.get("discount") / 2 +4 + 5) + "s" +
-                            "||%" + (maxLenghts.get("createdBy") / 2 - 5 + 5) + "s %-" + (maxLenghts.get("createdBy") / 2 +5 + 5) + "s" +
-                            "||%" + (maxLenghts.get("createdDate") / 2 - 6 + 5) + "s %-" + (maxLenghts.get("createdDate") / 2 +6 + 5) + "s" +
-                            "||%" + (maxLenghts.get("editedDate") / 2 - 5 + 5) + "s %-" + (maxLenghts.get("editedDate") / 2 +5 + 5) + "s" +
-                            "||%" + (maxLenghts.get("deletedDate") / 2 -6 + 5) + "s %-" + (maxLenghts.get("deletedDate") / 2 +6 + 5) + "s" +
-                            "||%" + (maxLenghts.get("logicallyDeleted") / 2 -9 + 5) + "s %-" + (maxLenghts.get("logicallyDeleted") / 2 +9 + 5) + "s||\n\n"
+                    "||%" + (maxLenghts.get("uuid") / 2 - 2 + 5) + "s %-" + (maxLenghts.get("uuid") / 2 + 2 + 5) + "s" +
+                            "||%" + (maxLenghts.get("title") / 2 - 3 + 5) + "s %-" + (maxLenghts.get("title") / 2 + 3 + 5) + "s" +
+                            "||%" + (maxLenghts.get("description") / 2 - 6 + 5) + "s %-" + (maxLenghts.get("description") / 2 + 6 + 5) + "s" +
+                            "||%" + (maxLenghts.get("category") / 2 - 4 + 5) + "s %-" + (maxLenghts.get("category") / 2 + 4 + 5) + "s" +
+                            "||%" + (maxLenghts.get("price") / 2 - 3 + 5) + "s %-" + (maxLenghts.get("price") / 2 + 3 + 5) + "s" +
+                            "||%" + (maxLenghts.get("availableQuantity") / 2 - 9 + 5) + "s %-" + (maxLenghts.get("availableQuantity") / 2 + 9 + 5) + "s" +
+                            "||%" + (maxLenghts.get("discount") / 2 - 4 + 5) + "s %-" + (maxLenghts.get("discount") / 2 + 4 + 5) + "s" +
+                            "||%" + (maxLenghts.get("createdBy") / 2 - 5 + 5) + "s %-" + (maxLenghts.get("createdBy") / 2 + 5 + 5) + "s" +
+                            "||%" + (maxLenghts.get("createdDate") / 2 - 6 + 5) + "s %-" + (maxLenghts.get("createdDate") / 2 + 6 + 5) + "s" +
+                            "||%" + (maxLenghts.get("editedDate") / 2 - 5 + 5) + "s %-" + (maxLenghts.get("editedDate") / 2 + 5 + 5) + "s" +
+                            "||%" + (maxLenghts.get("deletedDate") / 2 - 6 + 5) + "s %-" + (maxLenghts.get("deletedDate") / 2 + 6 + 5) + "s" +
+                            "||%" + (maxLenghts.get("logicallyDeleted") / 2 - 9 + 5) + "s %-" + (maxLenghts.get("logicallyDeleted") / 2 + 9 + 5) + "s||\n\n"
                     , "", "Uuid"
                     , "", "Title"
                     , "", "Description"
@@ -305,18 +281,18 @@ public class ProductService {
 
             for (int i = 0; i < products.length; i++) {
                 printWriter.print(String.format(
-                        "||%5s %-" + (maxLenghts.get("uuid") + 5) + "s" +
-                                "||%5s %-" + (maxLenghts.get("title") + 5) + "s" +
-                                "||%5s %-" + (maxLenghts.get("description") + 5) + "s" +
-                                "||%5s %-" + (maxLenghts.get("category") + 5) + "s" +
-                                "||%5s %-" + (maxLenghts.get("price") + 5) + "s" +
-                                "||%5s %-" + (maxLenghts.get("availableQuantity") + 5) + "s" +
-                                "||%5s %-" + (maxLenghts.get("discount") + 5) + "s" +
-                                "||%5s %-" + (maxLenghts.get("createdBy") + 5) + "s" +
-                                "||%5s %-" + (maxLenghts.get("createdDate") + 5) + "s" +
-                                "||%5s %-" + (maxLenghts.get("editedDate") + 5) + "s" +
-                                "||%5s %-" + (maxLenghts.get("deletedDate") + 5) + "s" +
-                                "||%5s %-" + (maxLenghts.get("logicallyDeleted") + 5) + "s||\n"
+                        "||%" + (maxLenghts.get("uuid") / 2 - products[i].getUuid().length() / 2 + 5) + "s %-" + (maxLenghts.get("uuid") / 2 + products[i].getUuid().length() / 2 + 5) + "s" +
+                                "||%" + (maxLenghts.get("title") / 2 - products[i].getTitle().length() / 2 + 5) + "s %-" + (maxLenghts.get("title") / 2 + products[i].getTitle().length() / 2 + 5) + "s" +
+                                "||%" + (maxLenghts.get("description") / 2 - products[i].getDescription().length() / 2 + 5) + "s %-" + (maxLenghts.get("description") / 2 + products[i].getDescription().length() / 2 + 5) + "s" +
+                                "||%" + (maxLenghts.get("category") / 2 - products[i].getCategory().getDescription().length() / 2 + 5) + "s %-" + (maxLenghts.get("category") / 2 + products[i].getCategory().getDescription().length() / 2 + 5) + "s" +
+                                "||%" + (maxLenghts.get("price") / 2 - products[i].getPrice().toString().length() / 2 + 5) + "s %-" + (maxLenghts.get("price") / 2 + products[i].getPrice().toString().length() / 2 + 5) + "s" +
+                                "||%" + (maxLenghts.get("availableQuantity") / 2 - String.valueOf(products[i].getAvailableQuantity()).length() / 2 + 5) + "s %-" + (maxLenghts.get("availableQuantity") / 2 + String.valueOf(products[i].getAvailableQuantity()).length() / 2 + 5) + "s" +
+                                "||%" + (maxLenghts.get("discount") / 2 - String.valueOf(products[i].getDiscount()).length() / 2 + 5) + "s %-" + (maxLenghts.get("discount") / 2 + String.valueOf(products[i].getDiscount()).length() / 2 + 5) + "s" +
+                                "||%" + (maxLenghts.get("createdBy") / 2 - products[i].getCreatedBy().length() / 2 + 5) + "s %-" + (maxLenghts.get("createdBy") / 2 + products[i].getCreatedBy().length() / 2 + 5) + "s" +
+                                "||%" + (maxLenghts.get("createdDate") / 2 - products[i].getCreatedDate().toString().length() / 2 + 5) + "s %-" + (maxLenghts.get("createdDate") / 2 + products[i].getCreatedDate().toString().length() / 2 + 5) + "s" +
+                                "||%" + (maxLenghts.get("editedDate") / 2 - (products[i].getEditedDate() != null ? products[i].getEditedDate().toString() : "Not edited so far").length() / 2 + 5) + "s %-" + (maxLenghts.get("editedDate") / 2 + (products[i].getEditedDate() != null ? products[i].getEditedDate().toString() : "Not edited so far").length() / 2 + 5) + "s" +
+                                "||%" + (maxLenghts.get("deletedDate")/ 2 - (products[i].getDeletedDate() != null ? products[i].getDeletedDate().toString() : "Not deleted so far").length() / 2 + 5) + "s %-" + (maxLenghts.get("deletedDate")/ 2 + (products[i].getDeletedDate() != null ? products[i].getDeletedDate().toString() : "Not deleted so far").length() / 2 + 5) + "s" +
+                                "||%" + (maxLenghts.get("logicallyDeleted") / 2 - (products[i].isLogicallyDeleted() ? "Yes" : "No").length() / 2 + 5) + "s %-" + (maxLenghts.get("logicallyDeleted") / 2 + (products[i].isLogicallyDeleted() ? "Yes" : "No").length() / 2 + 5) + "s||\n"
                         , "", products[i].getUuid()
                         , "", products[i].getTitle()
                         , "", products[i].getDescription()
